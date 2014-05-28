@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="2.5" type="plugin" group="vmpayment" method="upgrade">
+    <name>Virtuemart Webpay</name>
+    <creationDate>Diciembre 14 2013</creationDate>
+    <author>JoomlaEmpresa.cl</author>
+    <authorUrl>http://www.joomlaempresa.cl</authorUrl>
+    <copyright>Copyright (C) 2012-2013 Joomla Empresa. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <version>2.12</version>
+    <description>Webpay payment plugin</description>
+    <languages>
+		<language tag="es-ES">es-ES.plg_vmpayment_webpay.ini</language>
+    </languages>
+    <files>
+		<filename plugin="webpay">webpay.php</filename>
+		<folder>sql</folder>
+    </files>
+    <params addpath="/administrator/components/com_virtuemart/elements">
+		<param type="vmjpluginwarning" />
+		<param	name="payment_logos" type="vmfiles" label="VMPAYMENT_WEBPAY_LOGOS"
+			description="VMPAYMENT_WEBPAY_LOGOS_DESC"
+			directory="/images/stories/virtuemart/payment"
+			default="default" hide_default="1" hide_none="1"
+			stripext="0"   exclude="^_" />
+		<param name="countries" type="vmcountries"  scope="com_virtuemart" default="" label="VMPAYMENT_WEBPAY_COUNTRIES" description="VMPAYMENT_WEBPAY_COUNTRIES_DESC"/>
+		<param name="payment_currency" type="vmacceptedcurrency" default="" label="VMPAYMENT_WEBPAY_CURRENCY" description="VMPAYMENT_WEBPAY_CURRENCY_DESC" />
+		<param name="status_pending" type="vmorderstate" scope="com_virtuemart" default="U" label="VMPAYMENT_WEBPAY_STATUS_PENDING" description="VMPAYMENT_WEBPAY_STATUS_PENDING_EXPLAIN" />
+		<param name="min_amount" type="text"  label="VMPAYMENT_WEBPAY_MIN_AMOUNT" description="VMPAYMENT_WEBPAY_MIN_AMOUNT_EXPLAIN" />
+		<param name="max_amount" type="text"  label="VMPAYMENT_WEBPAY_MAX_AMOUNT" description="VMPAYMENT_WEBPAY_MAX_AMOUNT_EXPLAIN" />
+		<param name="cost_per_transaction" type="text"  label="VMPAYMENT_WEBPAY_COST_PER_TRANSACTION" description="VMPAYMENT_WEBPAY_COST_PER_TRANSACTION_EXPLAIN" />
+		<param name="cost_percent_total" type="text"  label="VMPAYMENT_WEBPAY_COST_PERCENT_TOTAL" description="VMPAYMENT_WEBPAY_COST_PERCENT_TOTAL_EXPLAIN" />
+		<param name="tax_id" type="vmtaxes" scope="com_virtuemart"  label="VMPAYMENT_WEBPAY_TAX" description="VMPAYMENT_WEBPAY_TAX_DESC" />
+		<param name="payment_info" type="textarea" cols="40" rows="30" label="VMPAYMENT_WEBPAY_PAYMENTINFO" description="VMPAYMENT_WEBPAY_PAYMENTINFO_EXPLAIN" />
+    </params>
+	
+   <install>
+      <sql>
+        <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+      </sql>
+   </install>
+
+</extension>
